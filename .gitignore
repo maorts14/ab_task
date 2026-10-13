@@ -10,6 +10,7 @@
 .project
 .settings/
 .vscode/
+ab.code-workspace
 sample_app/
 CONTEXT.md
 DELIVERABLE_NOTES.md
