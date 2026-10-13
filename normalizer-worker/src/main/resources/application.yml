@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: normalizer-worker
+  main:
+    web-application-type: none
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+    listener:
+      ack-mode: record
+    producer:
+      acks: all
+      properties:
+        enable.idempotence: true
+        delivery.timeout.ms: 60000
+app:
+  source-system: ${SOURCE_SYSTEM:SOURCE_A}
+  input-topic: ${INPUT_TOPIC:raw-orders.source-a.v1}
+  consumer-group: ${CONSUMER_GROUP:normalizer-source-a}
+  processed-topic: ${PROCESSED_TOPIC:processed-orders.v1}
+  dlq-topic: ${DLQ_TOPIC:normalization-failures-dlq.v1}

@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: ingestion-gateway
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
+    producer:
+      acks: all
+      properties:
+        enable.idempotence: true
+        delivery.timeout.ms: 60000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+app:
+  raw-topic:
+    source-a: ${RAW_TOPIC_SOURCE_A:raw-orders.source-a.v1}
+    source-b: ${RAW_TOPIC_SOURCE_B:raw-orders.source-b.v1}

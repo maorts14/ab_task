@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: mock-destination
+  main:
+    web-application-type: none
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:kafka:9092}
+    consumer:
+      auto-offset-reset: earliest
+app:
+  processed-topic: ${PROCESSED_TOPIC:processed-orders.v1}
+  consumer-group: mock-destination

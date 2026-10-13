@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+**/target/
+*.class
+*.log
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+sample_app/
+CONTEXT.md
+DELIVERABLE_NOTES.md
